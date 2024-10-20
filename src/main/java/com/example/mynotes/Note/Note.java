@@ -1,10 +1,19 @@
 package com.example.mynotes.Note;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="note")
 public class Note {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq")
+    @SequenceGenerator(name ="seq",sequenceName = "seq",allocationSize = 1)
+    private int id;
     private String title;
     private String content;
 
     private String author;
+    public Note(){}
     public Note(String title, String content,  String author) {
         this.title = title;
         this.content = content;
