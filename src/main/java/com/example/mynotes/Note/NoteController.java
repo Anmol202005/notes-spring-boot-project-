@@ -22,4 +22,6 @@ public class NoteController {
     public void AddNote(@RequestBody Note note){
         noteService.AddNote(note);
     }
+    @DeleteMapping("/{noteId}")
+    public void DeleteNote(@PathVariable("noteId") Integer id){noteService.DeleteNote(id);}
 }

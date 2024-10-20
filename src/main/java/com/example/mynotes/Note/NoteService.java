@@ -32,4 +32,13 @@ public class NoteService {
         return notesRepository.findAll();
     }
 
+    public void DeleteNote(Integer id) {
+        Boolean exist=notesRepository.existsById(id);
+        if(!exist){
+            throw new IllegalArgumentException("Note does not exist");
+        }
+        else{
+            notesRepository.deleteById(id);
+        }
+    }
 }
