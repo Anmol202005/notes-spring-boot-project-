@@ -15,13 +15,25 @@ public class NoteController {
         this.noteService = noteService;
     }
     @GetMapping("/")
-    public List<Note> getNotes(){
+    public List<Note> getNotes() {
         return noteService.getNotes();
     }
+
+    @GetMapping("/id/{id}")
+    public List<Note> getNote(@PathVariable int id) {
+        return noteService.getNotesbyid(id);
+    }
+
+
     @PostMapping("/post")
     public void AddNote(@RequestBody Note note){
         noteService.AddNote(note);
     }
     @DeleteMapping("/{noteId}")
     public void DeleteNote(@PathVariable("noteId") Integer id){noteService.DeleteNote(id);}
+
+    @PutMapping("/update/{id}")
+    public void updateNote(@PathVariable("id") Integer id, @RequestBody Note note){noteService.updateNote(id,note);}
+
+
 }

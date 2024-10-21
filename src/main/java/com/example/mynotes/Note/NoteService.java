@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class NoteService {
     @Autowired
@@ -29,6 +31,7 @@ public class NoteService {
     }
 
     public List<Note> getNotes(){
+
         return notesRepository.findAll();
     }
 
@@ -40,5 +43,32 @@ public class NoteService {
         else{
             notesRepository.deleteById(id);
         }
+
+    }
+
+    public void updateNote(Integer id, Note note) {
+        Optional<Note> existingnote=notesRepository.findById(id);
+        if(!existingnote.isPresent()){
+            throw new IllegalArgumentException("Note does not exist");
+        }
+        else{
+            existingnote.get().setTitle(note.getTitle());
+            existingnote.get().setContent(note.getContent());
+            notesRepository.save(existingnote.get());
+        }
+
+
+    }
+
+    public List<Note> getNotesbyid(Integer id) {
+        Optional<Note> existingnote=notesRepository.findById(id);
+        if(!existingnote.isPresent()){
+            throw new IllegalArgumentException("Note does not exist");
+        }
+        else{
+           notesRepository.findById(id);
+        }
+        return List.of();
     }
 }
+
