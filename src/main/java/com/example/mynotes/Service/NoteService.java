@@ -1,9 +1,9 @@
-package com.example.mynotes.Note;
+package com.example.mynotes.Service;
 
+import com.example.mynotes.Entity.Note;
+import com.example.mynotes.repository.notesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class NoteService {
     @Autowired
-    private notesRepository notesRepository;
+    private com.example.mynotes.repository.notesRepository notesRepository;
     public NoteService(notesRepository notesRepository) {
         this.notesRepository = notesRepository;
     }

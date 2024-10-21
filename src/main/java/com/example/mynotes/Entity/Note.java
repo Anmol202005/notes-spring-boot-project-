@@ -1,4 +1,4 @@
-package com.example.mynotes.Note;
+package com.example.mynotes.Entity;
 
 import jakarta.persistence.*;
 

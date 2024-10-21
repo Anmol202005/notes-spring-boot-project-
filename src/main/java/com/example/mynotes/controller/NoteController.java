@@ -1,5 +1,7 @@
-package com.example.mynotes.Note;
+package com.example.mynotes.controller;
 
+import com.example.mynotes.Entity.Note;
+import com.example.mynotes.Service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

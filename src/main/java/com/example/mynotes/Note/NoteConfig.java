@@ -1,5 +1,7 @@
 package com.example.mynotes.Note;
 
+import com.example.mynotes.Entity.Note;
+import com.example.mynotes.repository.notesRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
